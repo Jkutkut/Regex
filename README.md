@@ -181,3 +181,59 @@ All regex expressions made on diferent languages
 
         }
     }
+    
+### 
+    /*
+    given the numbers 1,2,3,4,5,6,7,8,9 on that order; find all combinations (with +-) that are equal to 100.
+    eg: 1234+5678 != 100
+        12+34-567-89
+    */
+    public class reto {
+        public static void main(String[] args) {
+            int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+            String[] symbol = {"","+","-"};		
+            /**
+             Sistema ternario: 8 digits + 1
+             0 1 2 10 11 12 20 21 22 100
+             max number = 8 digits --> 22222222 ==> 6561 possible combinations
+            */
+
+            Base ternario = new Base(3);//We work on base 3
+            String resultado;
+            String equation;
+            for(int i = 0; i < 6561; i++){//6561
+                ternario.setNumero(i);
+                resultado = ternario.getResultado();
+                equation = "1";
+                for(int j = 0; j < 8; j++){
+                    equation = equation + symbol[Integer.parseInt(resultado.substring(j, j+1))] + numbers[j+1];
+                }
+                String[] parts = equation.split("(?=[/+])|(?<=[/+])|(?=[/-])|(?<=[/-])");
+                double result = Double.parseDouble(parts[0]);
+                for(int l = 1; l < parts.length; l+=2){
+                    switch (parts[l]) {//symbol
+                        case "+" :
+                            result += Double.parseDouble(parts[l+1]);
+                            break;
+                        case "-" :
+                            result -= Double.parseDouble(parts[l+1]);
+                            break;
+                    }
+                }
+                if(result == 100){
+                    System.out.println("Comb: " + equation);//sol
+                }
+            }
+        }
+        public static String operacion(String signo, int number1, int number2) {
+            if(signo == ""){
+                return Integer.toString(number1) + Integer.toString(number2);
+            }
+            else if(signo == "+"){
+                return Integer.toString(number1 + number2);
+            }
+            else{
+                return Integer.toString(number1 - number2);
+            }
+        }
+    }
