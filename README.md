@@ -22,6 +22,11 @@ All regex expressions made on diferent languages
     The extension is max length 3, min length 1.
     
     r'^[a-zA-Z][a-zA-Z1-9._-]* <[a-z][a-z1-9._-]*@[a-z]+\.[a-z]{1,3}>$'
+    
+    if Email with no numbers:
+    
+    r'^([\w\.]+@\w+(\.\w+)+)$'
+
 
 ### Valid Hex Color Code
     r'(?!^)(#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3})'
@@ -33,7 +38,14 @@ All regex expressions made on diferent languages
 ## Java:
 
 ### Valid IP address:
-    "^((([0-1]?[0-9]?[0-9])|([0-2]?[0-4]?[0-9])|([2]?[0-5]?[0-5]))[.]){3}(([0-1]?[0-9]?[0-9])|([0-2]?[0-4]?[0-9])|([2]?[0-5]?[0-5]))"
+    If IP v4:
+    
+    "^((([0-1]?[0-9]?[0-9]|[2][0-5][0-5])\\.){3}([0-1]?[0-9]?[0-9]|[2][0-5][0-5])|^([0-9a-f]{1,4}:){7}[0-9a-f]{1,4})$"
+    
+    Once it's valid, you can check if it is a IPV6:
+    
+    "^([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}$"
+    
     
 ### Duplicated word on text:
     "\\b(\\w+)(?:\\W+\\1\\b)+"
@@ -49,3 +61,18 @@ All regex expressions made on diferent languages
     The first character of the username must be an alphabetic character.
     
     "[a-zA-Z][a-zA-Z_0-9]{7,29}"
+    
+### Detect HTML links:
+    "(?<code1><a href=\".+?\")(?<code2>.*?[<h1><b>]*>[\\s]*)(?<code3>.*?<)"
+    
+### Detect HTML Tags:
+    "(?<=<)[a-z0-3]+"
+### 
+### 
+### 
+### 
+### 
+### 
+### 
+### 
+###
