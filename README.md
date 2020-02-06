@@ -67,11 +67,64 @@ All regex expressions made on diferent languages
     
 ### Detect HTML Tags:
     "(?<=<)[a-z0-3]+"
-### 
-### 
-### 
-### 
-### 
+    
+### Detect the Domain Name:
+    "http[s]?:\\/\\/(ww[w2]\\.)?(([a-zA-Z0-9\\-]+\\.)+([a-zA-Z\\-])+)"
+    
+### Identifying comments:
+    public class Solution {
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            String line = "";
+            while(sc.hasNext()){
+                line = sc.nextLine();
+                Matcher m = Pattern.compile("\\/\\/.*$").matcher(line);
+                if(m.find()){
+                    System.out.println(m.group());
+                }
+                else if(Pattern.compile("\\/\\*").matcher(line).find()){//start /*
+                Matcher aux = Pattern.compile("\\/\\*").matcher(line);
+                aux.find();
+                    String text = line.substring(aux.start(), line.length());
+                    while(!Pattern.compile("\\*\\/").matcher(line).find()){
+                        line = sc.nextLine();
+                        text += "\n"+line.trim();
+                    }
+                    System.out.println(text);
+                }
+            }
+        }
+    }
+### Detecting Valid Latitude and Longitude Pairs:
+    "^\\([-+]?([1-8]?[0-9](\\.\\d+)?|90(\\.0+)?), [-+]?([1-9]?[0-9](\\.\\d+)?|1[0-7][0-9](\\.\\d+)?|180(\\.0+)?)\\)$"
+    
+### Valid PAN format (Indian SSN):
+    "[A-Z]{5}\\d{4}[A-Z]"
+    
+### Programming Language Detection:
+    public class Solution {
+
+        public static void main(String[] args) {
+            Scanner sc = new Scanner(System.in);
+            String line = "";
+            while(sc.hasNext()){
+                line = sc.nextLine();
+                if(Pattern.compile("#include").matcher(line).find()){
+                    System.out.println("C");
+                    break;
+                }
+                else if(Pattern.compile("java").matcher(line).find()){
+                    System.out.println("Java");
+                    break;
+                }
+                else if(Pattern.compile("(print |def)").matcher(line).find()){
+                    System.out.println("Python");
+                    break;
+                }
+            }
+        }
+    }
 ### 
 ### 
 ### 
