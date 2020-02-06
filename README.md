@@ -72,6 +72,11 @@ All regex expressions made on diferent languages
     "http[s]?:\\/\\/(ww[w2]\\.)?(([a-zA-Z0-9\\-]+\\.)+([a-zA-Z\\-])+)"
     
 ### Identifying comments:
+    import java.io.*;
+    import java.util.*;
+    import java.text.*;
+    import java.math.*;
+    import java.util.regex.*;
     public class Solution {
 
         public static void main(String[] args) {
@@ -103,6 +108,11 @@ All regex expressions made on diferent languages
     "[A-Z]{5}\\d{4}[A-Z]"
     
 ### Programming Language Detection:
+    import java.io.*;
+    import java.util.*;
+    import java.text.*;
+    import java.math.*;
+    import java.util.regex.*;
     public class Solution {
 
         public static void main(String[] args) {
@@ -125,7 +135,49 @@ All regex expressions made on diferent languages
             }
         }
     }
-### 
-### 
-### 
-###
+### Detect HTML Attributes
+    import java.io.*;
+    import java.util.*;
+    import java.text.*;
+    import java.math.*;
+    import java.util.regex.*;
+
+    public class Solution {
+
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        Pattern p = Pattern.compile("<(\\w+).*?(>|(\\/>))");
+        Pattern pAttribute = Pattern.compile("\\s+(\\w+)=['\"].*?[\"']");
+        int n = Integer.parseInt(br.readLine().trim());
+        TreeMap<String, TreeSet<String>> map = new TreeMap<>();
+        for (int i = 0; i < n; ++i) {
+            String line = br.readLine().trim();
+            Matcher m = p.matcher(line);
+            while (m.find()) {
+                String tag = m.group(1);//ex: div
+                TreeSet<String> set = map.get(tag);
+                if (set == null) {
+                    set = new TreeSet<>();
+                    map.put(tag, set);
+                }
+                String text = m.group();//ex: <a href="ab cd" attr1=' xyz'>
+                Matcher m2 = pAttribute.matcher(text);
+                while (m2.find()) {
+                    set.add(m2.group(1));
+                }
+            }
+        }
+        for(Map.Entry<String, TreeSet<String>> entry: map.entrySet()) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(entry.getKey()).append(":");
+            for(String attr: entry.getValue()) {
+                sb.append(attr).append(",");
+            }
+            if(sb.charAt(sb.length() - 1) == ',') {
+                sb.deleteCharAt(sb.length() - 1);
+            }
+            System.out.println(sb.toString());
+        }
+
+        }
+    }
