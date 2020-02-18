@@ -23,6 +23,8 @@ All regex expressions made on diferent languages
     
     r'^[a-zA-Z][a-zA-Z1-9._-]* <[a-z][a-z1-9._-]*@[a-z]+\.[a-z]{1,3}>$'
     
+    user123 <user34_43@fjkds.com> it's correct
+    
     if Email with no numbers:
     
     r'^([\w\.]+@\w+(\.\w+)+)$'
