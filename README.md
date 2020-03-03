@@ -48,6 +48,18 @@ All regex expressions made on diferent languages
     case = input();
     print("Valid" if all([re.search(rex[j], case) for j in range(len(rex))]) else "Invalid");
 
+### Valid credit card:
+    #These expressions can be used the same way as the "Multiple test in order to check if valid password".
+    rex = [
+        # start with 4, 5 or 6;
+        # only numbers and total length = 16 digits
+        # may be divided in 4-digits-group divided by "-"
+        # do not repeat the same digit more than 3 times
+        r'^[456]\d{3}(-?\d{4}){3}$',
+        r'^(?:(\d)-?(?!(-?\1){3,}))+$'
+    ];
+
+
 
 
 
