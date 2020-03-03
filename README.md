@@ -35,6 +35,18 @@ All regex expressions made on diferent languages
     
 ### Detect "&&" and "||" between spaces:
     r'(?<= )(&&|\|\|)(?= )'
+    
+### Multiple test in order to check if valid password:
+    import re;
+    rex = [
+        r'([A-Z]).*([A-Z])', #At least 2Upper english alphabet characters
+        r'\d.*\d.*\d', #At least 3 numbers
+        r'^[A-Za-z0-9]+$', #Only english alphabet and numbers
+        r'^.{10}$', #Length = 10
+        r'^(?:([A-Za-z0-9])(?!.*\1))*$' #No repetitions of characters
+    ];
+    case = input();
+    print("Valid" if all([re.search(rex[j], case) for j in range(len(rex))]) else "Invalid");
 
 
 
