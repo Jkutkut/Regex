@@ -32,7 +32,9 @@ All regex expressions made on diferent languages
 
 ### Valid Hex Color Code
     r'(?!^)(#[a-fA-F0-9]{6}|#[a-fA-F0-9]{3})'
-
+    
+### Detect "&&" and "||" between spaces:
+    r'(?<= )(&&|\|\|)(?= )'
 
 
 
