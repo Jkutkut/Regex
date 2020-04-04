@@ -60,7 +60,11 @@ All regex expressions made on diferent languages
     ];
 
 
+## JavaScript:
 
+### Correct passport:
+    This expression checks whenever a string named id is a passport:
+      /^[A-Z][0-9]{8}$/
 
 
 ## Java:
