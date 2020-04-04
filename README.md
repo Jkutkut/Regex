@@ -62,10 +62,16 @@ All regex expressions made on diferent languages
 
 ## JavaScript:
 
-### Correct passport:
+### Correct Spannish IDs:
+    ·Passport:
     This expression checks whenever a string named id is a passport:
       /^[A-Z][0-9]{8}$/
-
+    ·CIF:
+    whenever a string named id is a CIF
+     /^([ABCDEFGHJKLMNPQRSUVW])(\d{7})([0-9A-J])$/
+    ·NIE
+    whenever a string named id is a NIE
+     /^[XYZ]\d{7,8}[A-Z]$/
 
 ## Java:
 
