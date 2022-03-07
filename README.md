@@ -14,6 +14,10 @@ All regex expressions made on diferent languages
 ### Valid phone number:
     On this example, it must start with 7,8 or 9 and be length 9
     r'^[789]\d{8}$'
+<br>
+
+    Allow for prefix (+ sign and 2 or 3 digits) and 9 numbers (divided in grops of 3 or not)
+    (\+\d{2,3})? ?\d{3} ?\d{3} ?\d{3}
 
 ### Valid Email Address:
     The username starts with an English alphabetical character, and any subsequent characters
