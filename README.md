@@ -18,6 +18,10 @@ All regex expressions made on diferent languages
 
     Allow for prefix (+ sign and 2 or 3 digits) and 9 numbers (divided in grops of 3 or not)
     (\+\d{2,3})? ?\d{3} ?\d{3} ?\d{3}
+<br>
+
+    Spanish phone:
+    ^(\+\d{2,3})? ?\d{3} ?(\d{3} ?\d{3}|\d{2} ?\d{2} ?\d{2})$
 
 ### Valid Email Address:
     The username starts with an English alphabetical character, and any subsequent characters
