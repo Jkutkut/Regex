@@ -36,6 +36,9 @@ All regex expressions made on diferent languages
     if Email with no numbers:
     
     r'^([\w\.]+@\w+(\.\w+)+)$'
+    
+    Basic email:
+    ^[a-z][a-z1-9._-]*@[a-z]+\.[a-z]{1,3}$
 
 
 ### Valid Hex Color Code
