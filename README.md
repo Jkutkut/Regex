@@ -118,7 +118,7 @@ All regex expressions made on diferent languages
     "(?<=<)[a-z0-3]+"
     
 ### Detect the Domain Name:
-    "http[s]?:\\/\\/(ww[w2]\\.)?(([a-zA-Z0-9\\-]+\\.)+([a-zA-Z\\-])+)"
+    "http[s]?:\\/\\/(www2?\\.)?(([a-zA-Z0-9\\-]+\\.)+([a-zA-Z\\-])+)"
     
 ### Identifying comments:
     import java.io.*;
