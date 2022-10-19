@@ -2,11 +2,6 @@
 
 All regex expressions made on diferent languages
 
-## General:
-### Website:
-    https?:\/\/(www2?\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)
-
-
 ## Python 3:
 
 ### Detect Floating Point Number:
@@ -89,6 +84,10 @@ All regex expressions made on diferent languages
      /^[XYZ]\d{7,8}[A-Z]$/
 
 ## Java:
+
+### Website:
+
+    ^https?://(www2?\.)?[-a-zA-Z\d@:%._\+~#=]{1,256}\.[a-zA-Z\d()]{1,6}\b([-a-zA-Z\d()@:%_\+.~#?&/=]*)$
 
 ### Valid IP address:
     If IP v4:
